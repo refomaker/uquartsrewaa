@@ -1,0 +1,3 @@
+import{notFound,redirect}from'next/navigation';import Link from'next/link';import{requireAdmin}from'@/lib/admin';import{ArtworkDetail}from'@/components/ArtworkDetail';import type{Artwork}from'@/lib/types';
+export const dynamic='force-dynamic';
+export default async function Preview({params}:{params:Promise<{id:string}>}){const auth=await requireAdmin();if('error'in auth)redirect('/admin/login');const{id}=await params;const{data}=await auth.db.from('artworks').select('*').eq('id',id).maybeSingle();if(!data)notFound();return <><div className="preview-return"><Link href="/admin">← Back to admin archive · Return to archive manager</Link><span>PREVIEW · {data.status.toUpperCase()}</span></div><ArtworkDetail artwork={data as Artwork} related={[]}/></>}

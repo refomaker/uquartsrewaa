@@ -1,0 +1,2 @@
+import{describe,it,expect}from'vitest';import{nextArtworkId}from'./ids';
+describe('permanent artwork IDs',()=>{it('allocates after the largest existing sequence',()=>expect(nextArtworkId(['RW-0001','RW-0009','RW-0042'])).toBe('RW-0043'));it('starts at RW-0001',()=>expect(nextArtworkId([])).toBe('RW-0001'));it('never derives IDs from titles or duplicate IDs',()=>expect(nextArtworkId(['RW-0010','RW-0010','custom'])).toBe('RW-0011'))});
