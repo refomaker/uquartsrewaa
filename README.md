@@ -1,12 +1,12 @@
 # Rewaa | رواء — UQU Arts archive
 
-A bilingual art archive and exhibition site for Rewaa, organized by the Designs & Arts Club at Umm Al-Qura University. The club is the organizer; Rewaa is the exhibition identity. The current sample cards are clearly labeled demonstrations, not student submissions. No official logos are included. Demo records use `DEMO-*` IDs so they cannot be mistaken for, or collide with, real sequence-generated `RW-*` IDs.
+A bilingual art archive and exhibition site for Rewaa, organized by the Designs & Arts Club at Umm Al-Qura University. The club is the organizer; Rewaa is the exhibition identity. The current nine sample cards (`DEMO-0001` through `DEMO-0009`) are clearly labeled demonstrations, not student submissions. The site displays Umm Al-Qura University and Designs & Arts Club logo assets; obtain formal approval to use the University logo before public launch. Demo records use `DEMO-*` IDs so they cannot be mistaken for, or collide with, real sequence-generated `RW-*` IDs.
 
 ## Local preview
 
 1. Install Node.js 20+ and pnpm.
 2. Run `pnpm install` and `pnpm dev`, then open http://localhost:3000.
-3. Without Supabase credentials, the public site uses two labeled demonstration records. Admin features and persistent storage require Supabase setup.
+3. Without Supabase credentials, the public site uses nine labeled demonstration records across three exhibition tracks. Admin features and persistent storage require Supabase setup.
 
 ## Supabase setup
 
@@ -23,7 +23,7 @@ The migration creates a sequence-backed ID allocator. New IDs are permanent, uni
 
 Artwork pages use `/rewaa/art/RW-0042` routes. The former `/art/[id]` route redirects while preserving artwork IDs and query parameters. The Rewaa story is at `/rewaa`; `/about` redirects there, and the club page remains at `/club`. Add/edit/publish, image uploads (JPG/PNG/WebP up to 10 MB), archive status, preview, and CSV export live in `/admin`. Archive is a status change; records are not deleted. CSV export is unavailable until `PRODUCTION_SITE_URL` is set to the chosen canonical domain. This setting is configuration only; it does not prove the domain or DNS is live. Verify deployment and DNS before printing QR codes. Unavailable and invalid artwork IDs get a useful 404 page.
 
-The initial public UI includes Arabic/English controls on the gallery, RTL/LTR switching there, responsive styling, search, category filter, and light/dark theme. Individual artwork pages currently have Arabic presentation with English metadata alongside it; full language switching on details and About remains follow-up work.
+The public UI includes Arabic/English controls, RTL/LTR switching, responsive styling, keyword search, exhibition-track filtering, and light/dark theme. Individual artwork pages and About pages follow the selected language and display the other language as secondary content.
 
 ## Checks and deployment
 

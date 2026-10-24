@@ -33,6 +33,7 @@ export function SiteHeader() {
       className="theme-button"
       type="button"
       aria-label={ar ? (theme === 'dark' ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن') : (theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode')}
+      title={ar ? (theme === 'dark' ? 'الوضع الفاتح' : 'الوضع الداكن') : (theme === 'dark' ? 'Light mode' : 'Dark mode')}
       aria-pressed={theme === 'dark'}
       onClick={toggleTheme}
     >
@@ -71,7 +72,7 @@ export function SiteHeader() {
       ) : (
         <nav className="top-right secondary-nav" aria-label={ar ? 'التنقل الثانوي' : 'Secondary navigation'}>
           <Link className="back-archive" href="/">
-            <span aria-hidden="true">{ar ? '←' : '→'}</span>
+            <span aria-hidden="true">{ar ? '→' : '←'}</span>
             {ar ? 'العودة إلى الأرشيف' : 'Back to Archive'}
           </Link>
           {separator('back-language')}

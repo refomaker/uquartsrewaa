@@ -6,3 +6,5 @@ coverage
 .env*
 !.env.example
 *.tsbuildinfo
+.next-dev-backup-20261025/
+.next-dev-stale-20261025/

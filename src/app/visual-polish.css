@@ -1,6 +1,7 @@
 /* Rewaa visual polish: atmospheric surfaces and quiet, accessible motion. */
 
 :root {
+  --brand-gold-text: #715414;
   --surface-glow: rgba(85, 182, 194, .12);
   --surface-mint: rgba(185, 226, 217, .18);
   --surface-shadow: 0 22px 58px rgba(36, 84, 90, .09);
@@ -153,6 +154,13 @@ body {
 }
 
 .hero-intro { animation-delay: .1s; }
+.hero-intro[dir='rtl'] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: .35em;
+}
+
 .hero-description { animation-delay: .18s; }
 .hero-cta { animation-delay: .26s; }
 
@@ -338,8 +346,8 @@ body {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 88% 0%, rgba(131, 221, 229, .19), transparent 32%),
-    linear-gradient(110deg, #204d53, #38847d);
+    radial-gradient(ellipse at 88% 0%, rgba(131, 221, 229, .04), transparent 32%),
+    linear-gradient(110deg, #204d53, #367d76);
 }
 
 .site.dark .footer {
@@ -428,6 +436,8 @@ body {
 }
 
 .detail-image {
+  height: min(72vh, 680px);
+  min-height: 320px;
   overflow: hidden;
   background:
     radial-gradient(ellipse at center, rgba(131, 221, 229, .18), transparent 70%),
@@ -442,11 +452,8 @@ body {
 }
 
 .detail-image img {
-  transition: transform .8s var(--motion-ease);
-}
-
-.detail-image:hover img {
-  transform: scale(1.012);
+  padding: clamp(12px, 2.4vw, 28px);
+  object-fit: contain;
 }
 
 .detail-info h1 {
@@ -467,10 +474,199 @@ body {
   color: var(--brand-light-cyan);
 }
 
+.related-grid .related-card {
+  grid-column: span 1;
+  margin: 0;
+  border-top: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.related-grid .related-card .art-image {
+  height: clamp(180px, 22vw, 270px);
+}
+
+.related-grid .related-card .art-meta {
+  padding-top: 14px;
+}
+
+@media (max-width: 750px) {
+  .detail-image {
+    height: min(72vh, 620px);
+    min-height: 260px;
+  }
+}
+
 .about-page,
 .not-found {
   position: relative;
   isolation: isolate;
+}
+
+/* Keep text accents accessible while retaining the light gold for decoration. */
+.about-link {
+  color: var(--brand-gold-text);
+}
+
+.dark .about-link {
+  color: var(--brand-gold);
+}
+
+.about-page::before {
+  opacity: .45;
+}
+
+/* Keep every primary and secondary navigation item visible and comfortably tappable. */
+.primary-nav .club-label {
+  display: inline-flex;
+}
+
+.primary-nav a,
+.secondary-nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.text-button,
+.theme-button {
+  min-height: 44px;
+}
+
+.text-button {
+  padding-inline: 8px;
+}
+
+.theme-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.footer-contact-links a {
+  width: 44px;
+  height: 44px;
+}
+
+.about-link {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+}
+
+.search-box,
+.filters select {
+  min-height: 44px;
+}
+
+@media (max-width: 750px) {
+  .primary-nav .club-label {
+    display: inline-flex;
+  }
+
+  .club-label,
+  .nav-link,
+  .text-button,
+  .back-archive {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 370px) {
+  .topbar {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding-block: 6px;
+  }
+
+  .brand {
+    min-height: 44px;
+  }
+
+  .primary-nav {
+    order: 2;
+    flex: 1 0 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Archive controls, metadata, and no-results recovery. */
+.filters select {
+  border-color: color-mix(in srgb, var(--brand-teal-green) 38%, var(--line));
+  color: var(--ink);
+  font-size: 14px;
+  accent-color: var(--brand-teal-green);
+}
+
+.filters select option {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.filters select option:checked {
+  background-color: var(--brand-pale-aqua);
+  color: var(--brand-deep-petrol);
+}
+
+.site.dark .filters select option:checked {
+  background-color: var(--brand-deep-petrol);
+  color: var(--brand-white);
+}
+
+.art-grid > .art-card:last-child:nth-child(3n + 1) {
+  grid-column: 5 / span 4;
+  margin-top: 0;
+}
+
+.empty-state p {
+  margin: 0 0 18px;
+}
+
+.empty-state button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--brand-teal-green);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.empty-state button:hover {
+  background: var(--brand-teal-green);
+  color: var(--brand-white);
+}
+
+/* Keep supporting text comfortably readable in both languages. */
+.eyebrow,
+.work-count,
+.art-category,
+.art-id,
+.art-meta p,
+.facts div,
+.related h2 span,
+.club-card div span,
+.footer {
+  font-size: 14px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.detail-description p:last-child {
+  font-size: 14px;
+}
+
+.hero-description {
+  font-size: 15px;
+}
+
+@media (max-width: 750px) {
+  .art-grid > .art-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 420px);
+  }
 }
 
 .about-page > p {
