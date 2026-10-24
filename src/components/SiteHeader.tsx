@@ -62,7 +62,7 @@ export function SiteHeader() {
         <nav className="top-right primary-nav" aria-label={ar ? 'التنقل الرئيسي' : 'Main navigation'}>
           <Link className="club-label" href="/club">{ar ? 'عن النادي' : 'About the Club'}</Link>
           {separator('club-story')}
-          <Link className="nav-link" href="/about">{ar ? 'حكاية رواء' : 'Rewaa story'}</Link>
+          <Link className="nav-link" href="/rewaa">{ar ? 'حكاية رواء' : 'Rewaa story'}</Link>
           {separator('story-language')}
           {languageButton}
           {separator('language-theme')}

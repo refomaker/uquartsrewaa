@@ -1,4 +1,13 @@
-import {notFound} from 'next/navigation';import {getArtwork,getPublishedArtworks} from '@/lib/data';import{ArtworkDetail}from'@/components/ArtworkDetail';
-export const dynamic='force-dynamic';
-export async function generateMetadata({params}:{params:Promise<{id:string}>}){const{id}=await params;const a=await getArtwork(id);if(!a)return{title:'Artwork unavailable | Rewaa'};const origin=process.env.PRODUCTION_SITE_URL;return{title:`${a.title_ar} | ${a.title_en} — Rewaa`,description:a.description_en,alternates:origin?{canonical:`${origin.replace(/\/$/,'')}/art/${a.id}`}:{}}}
-export default async function ArtworkPage({params}:{params:Promise<{id:string}>}){const {id}=await params;const a=await getArtwork(id);if(!a)notFound();const related=(await getPublishedArtworks()).filter(x=>x.id!==id).slice(0,3);return <ArtworkDetail artwork={a} related={related}/>}
+import { redirect } from 'next/navigation';
+import { withSearchParams, type RouteSearchParams } from '@/lib/redirect-query';
+
+export default async function ArtworkCompatibilityPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: RouteSearchParams;
+}) {
+  const { id } = await params;
+  redirect(await withSearchParams('/rewaa/art/' + encodeURIComponent(id), searchParams));
+}
