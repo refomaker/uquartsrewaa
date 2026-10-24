@@ -1,3 +1,20 @@
-import Image from 'next/image';
+'use client';
+
 import Link from 'next/link';
-export default function NotFound(){return <main className="site" dir="rtl" lang="ar"><header className="topbar"><Link href="https://uqu.edu.sa" target="_blank" rel="noopener noreferrer" className="brand" aria-label="زيارة موقع جامعة أم القرى (يفتح في تبويب جديد)"><Image src="/logos/university-ar-light.png" alt="" width={1240} height={1075} className="brand-logo"/></Link></header><section className="not-found"><span className="eyebrow">404 · UQU ARTS ARCHIVE</span><h1>هذا العمل غير متاح<span className="gold-dot">.</span></h1><p>قد يكون الرابط غير صحيح أو لم يعد العمل منشوراً.</p><p dir="ltr">This artwork is unavailable. The link may be invalid or the artwork may no longer be published.</p><Link href="/" className="hero-cta">العودة إلى الأرشيف · Back to archive <span>↗</span></Link></section></main>}
+import { useSitePreferences } from '@/components/ThemeProvider';
+
+export default function NotFound() {
+  const { lang, theme } = useSitePreferences();
+  const ar = lang === 'ar';
+
+  return (
+    <main className={`site ${theme}`} dir={ar ? 'rtl' : 'ltr'} lang={lang}>
+      <section className="not-found">
+        <span className="eyebrow">404 · UQU ARTS ARCHIVE</span>
+        <h1>{ar ? 'هذا العمل غير متاح' : 'This artwork is unavailable'}<span className="gold-dot">.</span></h1>
+        <p>{ar ? 'قد يكون الرابط غير صحيح أو لم يعد العمل منشوراً.' : 'The link may be invalid or the artwork may no longer be published.'}</p>
+        <Link href="/" className="hero-cta">{ar ? 'العودة إلى الأرشيف' : 'Back to archive'} <span>↗</span></Link>
+      </section>
+    </main>
+  );
+}

@@ -2,42 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useSitePreferences } from '@/components/ThemeProvider';
 
 export default function ClubPage() {
-  const [lang, setLang] = useState<'ar' | 'en'>('ar');
-  const [dark, setDark] = useState(false);
+  const { lang, theme } = useSitePreferences();
+  const dark = theme === 'dark';
   const ar = lang === 'ar';
 
   return (
-    <main className={`site ${dark ? 'dark' : ''}`} dir={ar ? 'rtl' : 'ltr'} lang={lang}>
-      <header className="topbar">
-        <Link
-          href="https://uqu.edu.sa"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="brand"
-          aria-label={ar ? 'زيارة موقع جامعة أم القرى (يفتح في تبويب جديد)' : 'Visit Umm Al-Qura University website (opens in a new tab)'}
-        >
-          <Image
-            src={dark ? '/logos/university-ar-white.png' : '/logos/university-ar-light.png'}
-            alt=""
-            width={1240}
-            height={1075}
-            className="brand-logo"
-          />
-        </Link>
-        <div className="top-right">
-          <button className="text-button" onClick={() => setLang(ar ? 'en' : 'ar')}>
-            {ar ? 'English' : 'العربية'}
-          </button>
-          <button className="theme-button" aria-label={ar ? 'تغيير المظهر' : 'Toggle theme'} onClick={() => setDark(!dark)}>
-            {dark ? '☼' : '☾'}
-          </button>
-          <Link href="/" className="nav-link">{ar ? '← العودة إلى الأرشيف' : '← Back to archive'}</Link>
-        </div>
-      </header>
-
+    <main className={`site ${theme}`} dir={ar ? 'rtl' : 'ltr'} lang={lang}>
       <section className="about-page club-page">
         <h1
           className="club-title"
