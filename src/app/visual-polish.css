@@ -850,3 +850,13 @@ body {
     transition-duration: .01ms !important;
   }
 }
+.art-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.art-arrow svg {
+  display: block;
+  flex-shrink: 0;
+}
