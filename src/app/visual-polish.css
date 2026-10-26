@@ -377,17 +377,20 @@ body {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
+  flex-wrap: wrap;
   gap: 8px;
-  direction: ltr;
 }
 
 .footer-contact-links a {
-  display: grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 7px;
+  padding-inline: 10px;
   color: inherit;
-  border-radius: 50%;
+  font-size: 11px;
+  text-decoration: none;
+  border-radius: 999px;
   transition: color .2s ease, background-color .2s ease;
 }
 
@@ -543,8 +546,7 @@ body {
 }
 
 .footer-contact-links a {
-  width: 44px;
-  height: 44px;
+  min-height: 44px;
 }
 
 .about-link {

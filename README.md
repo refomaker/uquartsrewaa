@@ -1,6 +1,6 @@
 # Rewaa | رواء — UQU Arts archive
 
-A bilingual art archive and exhibition site for Rewaa, organized by the Designs & Arts Club at Umm Al-Qura University. The club is the organizer; Rewaa is the exhibition identity. The current nine sample cards (`DEMO-0001` through `DEMO-0009`) are clearly labeled demonstrations, not student submissions. The site displays Umm Al-Qura University and Designs & Arts Club logo assets; obtain formal approval to use the University logo before public launch. Demo records use `DEMO-*` IDs so they cannot be mistaken for, or collide with, real sequence-generated `RW-*` IDs.
+A bilingual art archive and exhibition site for Rewaa, organized by the Designs & Arts Club at Umm Al-Qura University. The club is the organizer; Rewaa is the exhibition identity. The current nine sample cards (`DEMO-0001` through `DEMO-0009`) are clearly labeled demonstrations, not student submissions. The site displays Umm Al-Qura University and Designs & Arts Club logo assets; formal approval to use the University logo has been obtained. Demo records use `DEMO-*` IDs so they cannot be mistaken for, or collide with, real sequence-generated `RW-*` IDs.
 
 ## Local preview
 
