@@ -91,7 +91,19 @@ export function ArtworkDetail({ artwork: a, related }: { artwork: Artwork; relat
                     sizes="(max-width: 700px) 100vw, 33vw"
                   />
                   <span className="art-id" lang="en" dir="ltr">{x.id}</span>
-                  <span className="art-arrow" aria-hidden="true">↗</span>
+                  <span className="art-arrow" aria-hidden="true"><svg
+    viewBox="0 0 24 24"
+    width="22"
+    height="22"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M7 17 17 7" />
+    <path d="M8 7h9v9" />
+  </svg></span>
                 </div>
                 <div className="art-meta">
                   <span className="art-category">
