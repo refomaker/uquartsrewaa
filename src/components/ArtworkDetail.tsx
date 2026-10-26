@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Artwork } from '@/lib/types';
 import { useSitePreferences } from '@/components/ThemeProvider';
-import { FooterContactLinks } from '@/components/FooterContactLinks';
 
 const categoryLabelsAr: Record<string, string> = {
   Painting: 'رسم',
@@ -123,10 +122,6 @@ export function ArtworkDetail({ artwork: a, related }: { artwork: Artwork; relat
           </div>
         </section>
       )}
-      <footer className="footer footer-contact-row">
-        <FooterContactLinks lang={lang} />
-        <span>{ar ? '© 2026 جميع حقوق الموقع محفوظة لإدارة نادي التصاميم والفنون.' : '© 2026 All website rights reserved to the Designs & Arts Club administration.'}</span>
-      </footer>
     </main>
   );
 }

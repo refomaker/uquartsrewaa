@@ -350,7 +350,8 @@ body {
     linear-gradient(110deg, #204d53, #367d76);
 }
 
-.site.dark .footer {
+.site.dark .footer,
+.footer.dark {
   background:
     radial-gradient(ellipse at 88% 0%, rgba(131, 221, 229, .14), transparent 34%),
     linear-gradient(110deg, #173a3b, #28635f);
@@ -383,10 +384,14 @@ body {
 
 .footer-contact-links a {
   display: inline-flex;
-  min-height: 32px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
   align-items: center;
+  justify-content: center;
   gap: 7px;
-  padding-inline: 10px;
+  padding: 0;
   color: inherit;
   font-size: 11px;
   text-decoration: none;
@@ -417,8 +422,8 @@ body {
 }
 
 .footer-contact-links .footer-contact-icon-x {
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
 }
 
 .footer-contact-divider {
@@ -430,12 +435,28 @@ body {
 .footer-contact-row {
   align-items: center;
   gap: 14px;
-  padding-block: 11px;
-  font-size: 8px;
+  padding-block: 10px;
+  font-size: clamp(10px, 2.7vw, 12px);
 }
 
 .footer-contact-row > span {
   max-width: 100%;
+  line-height: 1.6;
+}
+
+/* The shared footer sits outside the page-specific theme wrapper. */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > .site {
+  flex: 1 0 auto;
+}
+
+.footer-contact-row {
+  flex: 0 0 auto;
 }
 
 .detail-image {
@@ -861,4 +882,43 @@ body {
 .art-arrow svg {
   display: block;
   flex-shrink: 0;
+}
+
+/* Shared outer layout: the page content and global footer fill the viewport together. */
+body > .site {
+  min-height: 0;
+}
+
+.brand-logo {
+  width: clamp(116px, 11vw, 150px);
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+@media (max-width: 750px) {
+  .brand-logo { width: clamp(74px, 22vw, 110px); max-height: none; }
+  .hero h1 { font-size: clamp(64px, 18vw, 110px); }
+  .hero-intro { font-size: clamp(20px, 5.1vw, 27px); }
+  .hero-description { font-size: clamp(14px, 3.7vw, 15px); }
+  .hero-cta { font-size: clamp(14px, 3.8vw, 15px); }
+  .art-meta h3 { font-size: clamp(16px, 4.3vw, 19px); }
+  .art-meta p { font-size: clamp(12px, 3.4vw, 14px); }
+  .art-category { font-size: clamp(10px, 2.9vw, 12px); }
+  .section-heading h2 { font-size: clamp(28px, 8vw, 38px); }
+  .about-page h1 { font-size: clamp(40px, 12vw, 48px); }
+  .club-page h1 { font-size: clamp(34px, 10.8vw, 42px); }
+  .about-page > p,
+  .club-description { font-size: clamp(15px, 4vw, 17px); }
+  .detail-info h1 { font-size: clamp(27px, 7.2vw, 32px); }
+  .detail-description { font-size: clamp(14px, 3.8vw, 16px); }
+  .footer-contact-row > span { font-size: clamp(10px, 2.8vw, 12px); }
+}
+
+@media (max-width: 390px) {
+  .brand-logo { width: clamp(74px, 23vw, 90px); }
+  .gallery-section { padding-inline: 4%; }
+  .topbar { padding-inline: 4%; }
+  .top-right { gap: clamp(6px, 2vw, 10px); }
+  .footer-contact-row { gap: 4px 8px; }
 }

@@ -5,7 +5,6 @@ import {useMemo,useState} from 'react';
 import { exhibitionTracks, type Artwork, type ExhibitionTrack } from '@/lib/types';
 import { filterArtworks } from '@/lib/gallery-filters';
 import { useSitePreferences } from '@/components/ThemeProvider';
-import { FooterContactLinks } from '@/components/FooterContactLinks';
 const copy={ar:{club:'نادي التصاميم والفنون · جامعة ام القرى',nav:'حكاية رواء',intro:'جمالٌ يُعرض، ومهارةٌ تُصقل، وشغفٌ يرتوي',description:'أرشيف يحتضن تنوّع الرؤى الفنية، ويمنح كل تجربة مساحةً تُرى وتُكتشف.',search:'ابحث عن عمل أو فنان',allTracks:'جميع المسارات',tracks:{'nature-environment':'مسار الطبيعة والبيئة','nostalgia-memory':'مسار الحنين والذاكرة',heritage:'مسار التراث'},trackLabel:'المسار',works:'عمل فني',copyright:'© 2026 جميع حقوق الموقع محفوظة لإدارة نادي التصاميم والفنون.',about:'نؤمن بأن الإبداع يتجاوز حدود الفن والتصميم، وأن لكل فكرة مساحة تستحق أن تُرى وتُعبّر عن صاحبها. نسعى إلى فتح آفاق جديدة للمواهب، وصناعة تجارب تثري الخيال وتحول الأفكار إلى أثر ملموس.',medium:'الخامة',artist:'الفنان',toggle:'English',empty:'لا توجد أعمال تطابق البحث.'},en:{club:'DESIGNS & ARTS CLUB · UMM AL-QURA UNIVERSITY',nav:'Rewaa story',intro:'Beauty on display, skill refined, passion replenished.',description:'An archive embracing diverse artistic visions, giving each experience space to be seen and discovered.',search:'Search artwork or artist',allTracks:'All tracks',tracks:{'nature-environment':'Nature & Environment Track','nostalgia-memory':'Nostalgia & Memory Track',heritage:'Heritage Track'},trackLabel:'Track',works:'artworks',copyright:'© 2026 All website rights reserved to the Designs & Arts Club administration.',about:'We believe creativity goes beyond the boundaries of art and design, and that every idea deserves space to be seen and express its creator. We seek to open new horizons for talent and create experiences that enrich the imagination and turn ideas into tangible impact.',medium:'Medium',artist:'Artist',toggle:'العربية',empty:'No artworks match your search.'}};
 const categoryLabelsAr: Record<string, string> = { Painting: 'رسم', 'Mixed media': 'وسائط متعددة', Photography: 'تصوير فوتوغرافي', Illustration: 'رسم توضيحي', Drawing: 'رسم', 'Textile art': 'فن النسيج' };
 const mediumLabelsAr: Record<string, string> = { 'Oil on canvas': 'ألوان زيتية على قماش', 'Acrylic and collage': 'أكريليك وكولاج', 'Digital photography': 'تصوير رقمي', 'Watercolor on paper': 'ألوان مائية على ورق', 'Ink on paper': 'حبر على ورق', 'Acrylic on canvas': 'أكريليك على قماش', 'Print and collage': 'طباعة وكولاج', 'Woven fibers': 'ألياف منسوجة' };
@@ -45,6 +44,6 @@ export function Gallery({artworks}:{artworks:Artwork[]}){
   >
     <path d="M7 17 17 7" />
     <path d="M8 7h9v9" />
-  </svg></Link></section><footer className="footer footer-contact-row"><FooterContactLinks lang={lang}/><span>{t.copyright}</span></footer>
+  </svg></Link></section>
  </main>
 }

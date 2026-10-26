@@ -52,10 +52,10 @@ export function SiteHeader() {
         aria-label={ar ? 'زيارة موقع جامعة أم القرى (يفتح في تبويب جديد)' : 'Visit Umm Al-Qura University website (opens in a new tab)'}
       >
         <Image
-          src={theme === 'dark' ? '/logos/university-ar-white.png' : '/logos/university-ar-light.png'}
+          src={theme === 'dark' ? '/logos/university-horizontal-white.png' : '/logos/university-horizontal-light.png'}
           alt=""
-          width={1240}
-          height={1075}
+          width={1532}
+          height={640}
           className="brand-logo"
         />
       </Link>

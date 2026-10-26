@@ -46,11 +46,6 @@ export default function ClubPage() {
           </p>
         </aside>
       </section>
-
-      <footer className="footer">
-        <span>{ar ? 'نادي التصاميم والفنون · جامعة أم القرى' : 'Designs & Arts Club · Umm Al-Qura University'}</span>
-        <span>© UQU ARTS</span>
-      </footer>
     </main>
   );
 }
