@@ -32,6 +32,19 @@ export function Gallery({artworks}:{artworks:Artwork[]}){
     <path d="M7 17 17 7" />
     <path d="M8 7h9v9" />
   </svg></span></div><div className="art-meta"><span className="art-category"><span lang={rtl&&categoryLabelsAr[a.category]?'ar':'en'} dir={rtl&&categoryLabelsAr[a.category]?'rtl':'ltr'}>{rtl?categoryLabelsAr[a.category]??a.category:a.category}</span> · <span lang={rtl&&mediumLabelsAr[a.medium]?'ar':'en'} dir={rtl&&mediumLabelsAr[a.medium]?'rtl':'ltr'}>{rtl?mediumLabelsAr[a.medium]??a.medium:a.medium}</span></span><h3>{rtl?a.title_ar:a.title_en}</h3><p lang={rtl?'ar':'en'} dir={rtl?'rtl':'ltr'}>{t.artist} / {rtl?a.artist_ar:a.artist_en}</p></div></Link>)}</div>}
-  </section><section className="about-band"><div className="partner-logos"><Image src={`/logos/club-${rtl?'ar':'en'}-${theme==='dark'?'white':'light'}.png`} alt={rtl?'شعار نادي التصاميم والفنون':'Designs & Arts Club logo'} width={637} height={574} className="club-brand-logo" /></div><div><span className="eyebrow">{rtl?'نادي التصاميم والفنون بجامعة ام القرى':'DESIGNS & ARTS CLUB · UMM AL-QURA UNIVERSITY'}</span><p>{t.about}</p></div><Link href="/club" className="about-link" aria-label={rtl?'زيارة صفحة نادي التصاميم والفنون':'Visit the Designs & Arts Club page'} title={rtl?'عن النادي':'About the Club'}>↗</Link></section><footer className="footer footer-contact-row"><FooterContactLinks lang={lang}/><span>{t.copyright}</span></footer>
+  </section><section className="about-band"><div className="partner-logos"><Image src={`/logos/club-${rtl?'ar':'en'}-${theme==='dark'?'white':'light'}.png`} alt={rtl?'شعار نادي التصاميم والفنون':'Designs & Arts Club logo'} width={637} height={574} className="club-brand-logo" /></div><div><span className="eyebrow">{rtl?'نادي التصاميم والفنون بجامعة ام القرى':'DESIGNS & ARTS CLUB · UMM AL-QURA UNIVERSITY'}</span><p>{t.about}</p></div><Link href="/club" className="about-link" aria-label={rtl?'زيارة صفحة نادي التصاميم والفنون':'Visit the Designs & Arts Club page'} title={rtl?'عن النادي':'About the Club'}> <svg
+    viewBox="0 0 24 24"
+    width="22"
+    height="22"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M7 17 17 7" />
+    <path d="M8 7h9v9" />
+  </svg></Link></section><footer className="footer footer-contact-row"><FooterContactLinks lang={lang}/><span>{t.copyright}</span></footer>
  </main>
 }
